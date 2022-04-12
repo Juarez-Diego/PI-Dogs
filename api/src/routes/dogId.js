@@ -55,7 +55,7 @@ const dbInfo = async function(id){
             name: e.name,
             weight: e.weight,
             height: e.height.metric,
-            temperament: e.Temperaments?.map(v => v.name),
+            temperament: e.Temperaments?.map(v => v.name).join(", "),
             life_span: e.life_span,
             image: e.image,
             createdInDb: e.createdInDb

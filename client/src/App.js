@@ -6,6 +6,7 @@ import Nav from './Components/Nav/Nav';
 import LandingPage from './Components/LandingPage/LandingPage';
 import Home from './Components/Home/Home';
 import Form from './Components/Form/Form';
+import DogDetail from './Components/DogDetail/DogDetail';
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
       <Route exact path="/" render={() => <LandingPage />}></Route>
       <Route exact path="/home" render={() => <Home /> }></Route>
       <Route exact path="/dog" render={() => <Form />}></Route>
-      {/* <Route exact path="/videogame/:gameId" render={() => <VideogameDetail />}></Route> */}
+      <Route exact path="/dogs/:DogId" render={() => <DogDetail />}></Route>
       </Switch>
       
     </div>

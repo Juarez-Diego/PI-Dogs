@@ -43,7 +43,7 @@ const dbDogs = async function(){
             id: e.id,
             name: e.name,
             weight: e.weight,
-            temperament: e.Temperaments?.map(v => v.name),
+            temperament: e.Temperaments?.map(v => v.name).join(", "),
             image: e.image,
             createdInDb: e.createdInDb
         }
