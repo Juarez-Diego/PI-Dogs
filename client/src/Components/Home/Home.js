@@ -9,6 +9,8 @@ import SearchBar from "../SearchBar/SearchBar.js"
 import Filters from "../Filters/Filters.js"
 import Paginado from "../Paginado/Paginado";
 
+import "../Home/Home.css"
+
 function Home(){
 
 const dispatch = useDispatch()
@@ -22,8 +24,8 @@ useEffect(() => {                 // Intenta mover esto a App.js para que deje d
 }, [])
 
     return(
-        <div>
-            <h1>Componente Home</h1>
+        <div div className="background-image">
+      
             <SearchBar />
             <Filters />
 

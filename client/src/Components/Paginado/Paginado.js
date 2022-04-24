@@ -5,6 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import Card from "../Card/Card";
+import Loading from "../Loading/Loading";
+
+import "../Paginado/Paginado.css"
 
 function Paginado(){
 
@@ -33,20 +36,26 @@ const pages = function(pageNumber) {
 
     return(
         <div>
+
+            <div className="paginado-main">
             <nav>
             <ul>
                 {pageNumber && pageNumber.map(number => {return(
-                    <li key={number}>
-                        <button onClick={() => pages(number)}>{number}</button>
+                    <li className="paginado_list" key={number}>
+                        <button className="paginado-button" onClick={() => pages(number)}>{number}</button>
                     </li>
                 )})}
             </ul>
             </nav>
-            
+            </div>
 
-            {currentDoggo?.map((e) => {
+
+            {allDoggos.length == 0 && allDoggos ? (<Loading />) :
+
+            <div className="container">
+            {Array.isArray(currentDoggo) ? currentDoggo?.map((e) => {
             return (
-            <div>
+                <div className="card">
             <Fragment>
                 <Link to={`/dogs/${e.id}`} style={{ textDecoration: 'none' }} > 
                     <Card 
@@ -56,15 +65,14 @@ const pages = function(pageNumber) {
                     weight={e.weight}
                     temperament={e.temperament}
                     image={e.image}
-                    
                     />
                 </Link>
             </Fragment>
-            
             </div>
-            )}
-        )}
-
+            )}) : (<div className="name-not-found"><h1>Dog not found, please try another search</h1></div>)
+        }
+            </div>
+        }
         </div>
     )
 }

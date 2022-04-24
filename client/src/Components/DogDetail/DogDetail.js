@@ -52,7 +52,7 @@ useEffect(() => {
         </div>
 
         <div>
-        <h3>Life Span: {detailedDoggo[0].life_span}</h3>
+        <h3>Life Span: {detailedDoggo[0].life_span} years</h3>
         </div>
             
     </div> :  (<Loading />) 

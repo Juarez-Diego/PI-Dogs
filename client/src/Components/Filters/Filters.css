@@ -1,0 +1,38 @@
+.filters{
+    /* border: 1.8px solid #000; */
+    padding-top: 40px;
+    height: 50px;
+    width: 800px;
+    display: flex;
+    margin-left: 60px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.filter-titles{
+    display: flex;
+    color: #002d26;
+    font-size: 17px;
+}
+
+.filters-source{
+    cursor: pointer;
+    margin-top: 7px;
+    font-size: medium;
+    color: #EFF7F6;
+    border: #EFF7F6 3px solid;
+    background-color: transparent;
+    border-radius: 5px;
+    height: 35px;
+    width: 150px;
+ 
+}
+.filters-source:focus {
+    outline : #EFF7F6;
+}
+
+.filters-option{
+    color: black;
+    background-color: #EFF7F6;
+    opacity: .5;
+}

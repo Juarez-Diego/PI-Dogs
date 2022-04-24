@@ -1,0 +1,39 @@
+.form{
+    height: 1000px;
+    width: 100%;
+    background-image: url("../../Images/Dog_Breeds.png");
+    background-size: cover;
+}
+
+.form-title-container{
+    display: flex;
+    justify-content: center;
+}
+
+.form-title{
+    margin-top: 20px;
+    color: #EFF7F6;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.inputs_and_dropdowns{
+    border: 1.8px solid #000;
+    width: 850px;
+    height: 600px;
+    background-color: #EFF7F6;
+    border-radius: 15px;
+    border: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.min_max_inputs{
+    display: flex;
+    justify-content: center;
+}

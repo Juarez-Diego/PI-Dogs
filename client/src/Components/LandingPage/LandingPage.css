@@ -1,0 +1,40 @@
+.landing-background{
+    height: 1000px;
+    width: 100%;
+    background-image: url("../../Images/Golden_Background.jpg");
+    background-size: cover;
+  }
+
+.landing-content{
+    display: flex;
+    flex-direction: column;
+    float: right;
+    margin-right: 40px;
+}
+
+.landing-title{
+    color: white;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+}
+
+.landing-description{
+    width: 300px;
+    color: white; 
+    margin-top: 15px;
+    font-size: 1.8rem;
+    word-wrap: break-word;
+}
+
+.landing-button{
+    font-size: 25px;
+    height: 80px;
+    width: 240px;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+    border: white 3px solid;
+    background-color: transparent;
+    border-radius: 15px;
+  }
