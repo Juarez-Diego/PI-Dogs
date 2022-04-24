@@ -1,6 +1,7 @@
-import './App.css';
+import React, {useEffect} from "react";
 
 import {Route, Switch} from "react-router-dom"
+import { useDispatch } from "react-redux";
 
 import Nav from './Components/Nav/Nav';
 import LandingPage from './Components/LandingPage/LandingPage';
@@ -8,7 +9,22 @@ import Home from './Components/Home/Home';
 import Form from './Components/Form/Form';
 import DogDetail from './Components/DogDetail/DogDetail';
 
+import {getAllDogs, getTemperaments} from "./Actions/index";
+import './App.css';
+
 function App() {
+
+const dispatch = useDispatch()
+
+useEffect(() => {
+    dispatch(getAllDogs())
+}, [])
+
+useEffect(() => {                 // Intenta mover esto a App.js para que deje de cargar
+    dispatch(getTemperaments())
+}, [])
+
+
   return (
     <div className="App">
       <Route path={['/home', '/dogs/', '/dog/', '/dogs/:DogId',]}><Nav /></Route>

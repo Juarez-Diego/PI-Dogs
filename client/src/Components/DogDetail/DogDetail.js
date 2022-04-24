@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getDogById } from "../../Actions";
 
 import Loading from "../Loading/Loading";
-
+import "../DogDetail/DogDetail.css"
 
 function DogDetail(){
 
@@ -21,38 +21,37 @@ useEffect(() => {
 }, [dispatch, DogId])
 
     return(
-        <div>
-            {!Array.isArray(detailedDoggo) ? (<div className="name-not-found"><h1>Videogame not found, please try another search</h1></div>) :
+        <div className="detail">
+            {!Array.isArray(detailedDoggo) ? (<div className="name-not-found"><h1>Dog not found, please try another search</h1></div>) :
 
             detailedDoggo.length > 0 ? 
 
-        <div>
+        <div className="detail-contents">
 
-        <div>
-        <img src={detailedDoggo[0].image} onError={(e)=>{e.target.onerror = null; e.target.src=defaultImage}} alt="img" width="600px" height="350px" ></img>
+        <img className="detail-img" src={detailedDoggo[0].image} onError={(e)=>{e.target.onerror = null; e.target.src=defaultImage}} alt="img" width="600px" height="350px" ></img>
 
-        <div>
-        <div>
-        <h1>{detailedDoggo[0].name}</h1>
+        
+        <div className="name-container">
+        <h1 className="detail-name">{detailedDoggo[0].name}</h1>
         </div>
 
-        <div>
-        <h2>Temperament: {detailedDoggo[0].temperament}</h2>
-        </div>
-        </div>
-
-        </div>
+        
 
         <div>
         <h2>Weight: {detailedDoggo[0].weight} kgs.</h2>
         </div>
 
         <div>
-        <h3>Height: {detailedDoggo[0].height} cm.</h3>
+        <h2>Height: {detailedDoggo[0].height} cm.</h2>
         </div>
 
         <div>
-        <h3>Life Span: {detailedDoggo[0].life_span} years</h3>
+        <h2>Life Span: {detailedDoggo[0].life_span}</h2>
+        </div>
+
+        <div className="detail-temperament">
+        <h2>Temperament:</h2>
+        <h3>{detailedDoggo[0].temperament}</h3>
         </div>
             
     </div> :  (<Loading />) 

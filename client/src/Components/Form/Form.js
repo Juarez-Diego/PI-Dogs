@@ -119,30 +119,38 @@ function submit(e){
 
 
     return(
-        <div className="form">
-            <div className="form-title-container">
-                <h1 className="form-title">Fill in the fields</h1>
-            </div>
-            
+        <div className="form">            
 
             <div className="inputs_and_dropdowns">
+            {/* <div className="form-title-container">
+                <h1 className="form-title">Fill in the fields</h1>
+            </div> */}
+
                 <form onSubmit={submit}>
+                <button className="form-button">CREATE</button>
                 <div className="inputs">
-                    <label>Name: </label>
-                    <input type="text" value={input.name} name="name" onChange={handleSubmit}></input>
-                    {formErrors.name && (<p>{formErrors.name}</p>)}
-                    <br />
 
+                    <div className="name-img-container">
+                        <label>Name: </label>
+                        <input type="text" value={input.name} name="name" onChange={handleSubmit}></input>
+                        {formErrors.name && (<h5 className="warning">{formErrors.name}</h5>)}
+                        <br />
 
+                        <label>Image: </label>
+                        <input type="file" value={input.image} name="image" onChange={handleSubmit}></input>
+                        <br />
+                    </div>
+
+                    <div className="min_max_container">
                     <div className="min_max_inputs">
                         <label>Height Minimum: </label>
                         <input type="number" value={input.height_min} name="height_min" onChange={handleSubmit}></input>
-                        {formErrors.height_min && (<p>{formErrors.height_min}</p>)}
+                        {formErrors.height_min && (<h5 className="warning">{formErrors.height_min}</h5>)}
                         <br />
 
                         <label>Height Maximum: </label>
                         <input type="number" value={input.height_max} name="height_max" onChange={handleSubmit}></input>
-                        {formErrors.height_max && (<p>{formErrors.height_max}</p>)}
+                        {formErrors.height_max && (<h5 className="warning">{formErrors.height_max}</h5>)}
                         <br />
                     </div>
 
@@ -150,12 +158,12 @@ function submit(e){
                     <div className="min_max_inputs">
                         <label>Weight Minimum: </label>
                         <input type="number" value={input.weight_min} name="weight_min" onChange={handleSubmit}></input>
-                        {formErrors.weight_min && (<p>{formErrors.weight_min}</p>)}
+                        {formErrors.weight_min && (<h5 className="warning">{formErrors.weight_min}</h5>)}
                         <br />
 
                         <label>Weight Maximum: </label>
                         <input type="number" value={input.weight_max} name="weight_max" onChange={handleSubmit}></input>
-                        {formErrors.weight_max && (<p>{formErrors.weight_max}</p>)}
+                        {formErrors.weight_max && (<h5 className="warning">{formErrors.weight_max}</h5>)}
                         <br />
                     </div>
 
@@ -163,34 +171,32 @@ function submit(e){
                     <div className="min_max_inputs">
                         <label>Life Span Minimum: </label>
                         <input type="number" value={input.life_span_min} name="life_span_min" onChange={handleSubmit}></input>
-                        {formErrors.life_span_min && (<p>{formErrors.life_span_min}</p>)}
+                        {formErrors.life_span_min && (<h5 className="warning">{formErrors.life_span_min}</h5>)}
                         <br />
 
                         <label>Life Span Maximum: </label>
                         <input type="number" value={input.life_span_max} name="life_span_max" onChange={handleSubmit}></input>
-                        {formErrors.life_span_max && (<p>{formErrors.life_span_max}</p>)}
+                        {formErrors.life_span_max && (<h5 className="warning">{formErrors.life_span_max}</h5>)}
                         <br />
                     </div>
+                    </div>
 
-                    <label>Image: </label>
-                    <input type="file" value={input.image} name="image" onChange={handleSubmit}></input>
-                    <br />
                 </div>
 
 
                 {/* //////////////////////////////DROPDOWN FOR TYPES/////////////////////// */}
-                <div>
-                    {formErrors.temperament && (<p>{formErrors.temperament}</p>)}
+                <div className="temperament-container">
+                    {formErrors.temperament && (<h5 className="warning">{formErrors.temperament}</h5>)}
             
                     <span>Add Temperaments: </span>
                     <select  onChange={e => handleSelectTemperaments(e)}>
                     {allTemperaments?.map((e, index) => (<option key={index} name="temperament" value={e.name}>{e.name}</option>))}
                     </select>
 
-                    <ul>{input.temperament.map(e => <li key={e}>{e} <div onClick={() => handleDelete(e)}>X</div></li>)}</ul>
+                    <ul>{input.temperament.map(e => <li className="platform-list" key={e}>{e} <div className="list-delete" onClick={() => handleDelete(e)}>X</div></li>)}</ul>
                 </div>
 
-                <button>CREATE</button>
+                {/* <button className="form-button">CREATE</button> */}
                 </form>
             </div>
 

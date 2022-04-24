@@ -13,16 +13,6 @@ import "../Home/Home.css"
 
 function Home(){
 
-const dispatch = useDispatch()
-
-useEffect(() => {
-    dispatch(getAllDogs())
-}, [])
-
-useEffect(() => {                 // Intenta mover esto a App.js para que deje de cargar
-    dispatch(getTemperaments())
-}, [])
-
     return(
         <div div className="background-image">
       
