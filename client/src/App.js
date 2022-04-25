@@ -20,7 +20,7 @@ useEffect(() => {
     dispatch(getAllDogs())
 }, [])
 
-useEffect(() => {                 // Intenta mover esto a App.js para que deje de cargar
+useEffect(() => {                 
     dispatch(getTemperaments())
 }, [])
 

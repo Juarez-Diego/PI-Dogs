@@ -15,21 +15,21 @@ function formValidation(input){
     if (input.height_min <= 0) {
         formErrors.height_min = "Minimum height must be greater than 0";
     }
-    if (input.height_max > 200) {
-        formErrors.height_max = "Maximum height cannot exceed 200 cm";
+    if (input.height_max > 200 || input.height_max <= 0) {
+        formErrors.height_max = "Max height must be between 0 and 200 cm";
     }
 
     if (input.weight_min <= 0) {
         formErrors.weight_min = "Minimum weight must be greater than 0";
     }
-    if (input.weight_max > 150) {
-        formErrors.weight_max = "Maximum weight cannot exceed 150 kgs";
+    if (input.weight_max > 150 || input.weight_max <= 0) {
+        formErrors.weight_max = "Max weight must be between 0 and 150 kgs";
     }
     if (input.life_span_min <= 0) {
         formErrors.life_span_min = "Life span must be greater than 0";
     }
-    if (input.life_span_max > 50) {
-        formErrors.life_span_max = "Life span cannot exceed 50 years";
+    if (input.life_span_max > 50 || input.life_span_max <= 0) {
+        formErrors.life_span_max = "Life span must be between 0 and 50 years";
     }
     if (!input.temperament || input.temperament.length === 0) {
         formErrors.temperament = "Please include at least one temperament";
@@ -114,31 +114,67 @@ function submit(e){
               }
             dispatch(createDog(newDoggo))
             alert("Doggy created successfully!")
+
+            setInput({
+                name: "",
+                image: "",
+                temperament: [],
+
+                height_min: 0,
+                height_max: 0,
+
+                weight_min: 0,
+                weight_max: 0,
+
+                life_span_min: 0,
+                life_span_max: 0,
+            })
         }
+}
+
+function clearContents(){
+    setInput({
+        name: "",
+        image: "",
+        temperament: [],
+
+        height_min: 0,
+        height_max: 0,
+
+        weight_min: 0,
+        weight_max: 0,
+
+        life_span_min: 0,
+        life_span_max: 0,
+    })
 }
 
 
     return(
         <div className="form">            
-
+    
             <div className="inputs_and_dropdowns">
-            {/* <div className="form-title-container">
-                <h1 className="form-title">Fill in the fields</h1>
-            </div> */}
-
+              
                 <form onSubmit={submit}>
                 <button className="form-button">CREATE</button>
+               
                 <div className="inputs">
 
                     <div className="name-img-container">
-                        <label>Name: </label>
-                        <input type="text" value={input.name} name="name" onChange={handleSubmit}></input>
-                        {formErrors.name && (<h5 className="warning">{formErrors.name}</h5>)}
-                        <br />
 
-                        <label>Image: </label>
-                        <input type="file" value={input.image} name="image" onChange={handleSubmit}></input>
-                        <br />
+                        <div>
+                            <label>Name: </label>
+                            <input className="name-input" type="text" value={input.name} name="name" onChange={handleSubmit}></input>
+                            {formErrors.name && (<h5 className="warning">{formErrors.name}</h5>)}
+                            <br />
+                        </div>
+
+                        <div>
+                            <label>Image: </label>
+                            <input type="text" value={input.image} name="image" onChange={handleSubmit}></input>
+                            <br />
+                        </div>
+
                     </div>
 
                     <div className="min_max_container">
@@ -198,6 +234,9 @@ function submit(e){
 
                 {/* <button className="form-button">CREATE</button> */}
                 </form>
+                {/* <div>   
+            <button className="clear-form-button" onClick={() => clearContents()}>Clear Form</button>
+            </div>  */}
             </div>
 
         </div>

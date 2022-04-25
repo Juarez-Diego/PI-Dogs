@@ -37,3 +37,16 @@
     background-color: transparent;
     border-radius: 0.25em;
 }
+
+.clear-button{
+    margin-top: 17px;
+    font-size: medium;
+    height: 44px;
+    width: 70px;
+    cursor: pointer;
+    color: #002d26;
+    border: #002d26 3px solid;
+    background-color: transparent;
+    border-radius: 0.25em;
+    margin-left: 25px;
+}

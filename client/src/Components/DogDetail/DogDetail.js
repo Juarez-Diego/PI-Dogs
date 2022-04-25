@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import { getDogById } from "../../Actions";
+import { getDogById, resetDetail } from "../../Actions";
 
 import Loading from "../Loading/Loading";
 import "../DogDetail/DogDetail.css"
@@ -17,6 +17,7 @@ const {DogId} = useParams();
 
 
 useEffect(() => {
+    dispatch(resetDetail())
     dispatch(getDogById(DogId))
 }, [dispatch, DogId])
 

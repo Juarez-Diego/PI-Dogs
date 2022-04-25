@@ -15,7 +15,6 @@ function Home(){
 
     return(
         <div div className="background-image">
-      
             <SearchBar />
             <Filters />
 

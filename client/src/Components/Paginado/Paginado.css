@@ -16,7 +16,7 @@
 }
 
 .paginado-button{
-    background-color: #006F57;
+    background-color: #74b3ce;
     cursor:pointer;
     width: 45px;
     height: 35px;
@@ -26,7 +26,7 @@
 }
 
 .paginado-button:hover{
-    background-color: #23856D;
+    background-color: #172a3a;
     cursor:pointer;
 }
 

@@ -2,7 +2,7 @@ import React from "react";
 import {useDispatch} from "react-redux"
 import { useState } from "react";
 
-import {getDogByName} from "../../Actions/index"
+import {getDogByName, getAllDogs} from "../../Actions/index"
 import "../SearchBar/SearchBar.css"
 
 function SearchBar(){
@@ -20,10 +20,18 @@ function handleSubmit(e){
     dispatch(getDogByName(searchWord))
 }
 
+
+// Button to refresh Home
+function refresh(e){
+    e.preventDefault();
+    dispatch(getAllDogs());
+}
+
     return(
         <div className="searchbar">
             <input className="input" type="text" placeholder="Search by name..." onChange={e => handleInputChange(e)}></input>
             <button className="search-button" type="submit" onClick={e => handleSubmit(e)}>Search</button>
+            <button className="clear-button" onClick={(e) => refresh(e)}>Clear Filters</button>
         </div>
     )
 }

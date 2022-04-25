@@ -32,13 +32,35 @@ const pageNumber = [];
 const pages = function(pageNumber) {
     setCurrentPage(pageNumber)
 }
-    
+
+useEffect(() => {
+    setCurrentPage(1)
+},[allDoggos])
+
+function nextPage(pageNumber){
+    setCurrentPage(currentPage + 1)
+}
+
+function previousPage(pageNumber){
+    if(currentPage <= 1) {
+        return
+    }
+    else{
+        setCurrentPage(currentPage - 1)
+    }
+}
 
     return(
         <div>
 
             <div className="paginado-main">
-            <nav>
+           <div>
+               {console.log(currentPage)}
+            <button onClick={() => previousPage(pageNumber)}>Previous Page</button>
+            <button onClick={() => nextPage(pageNumber)}>Next Page</button>
+           </div>
+            
+            {/* <nav>
             <ul>
                 {pageNumber && pageNumber.map(number => {return(
                     <li className="paginado_list" key={number}>
@@ -46,11 +68,11 @@ const pages = function(pageNumber) {
                     </li>
                 )})}
             </ul>
-            </nav>
+            </nav> */}
             </div>
 
 
-            {allDoggos.length == 0 && allDoggos ? (<Loading />) :
+            {allDoggos.length === 0 && allDoggos ? (<Loading />) :
 
             <div className="container">
             {Array.isArray(currentDoggo) ? currentDoggo?.map((e) => {

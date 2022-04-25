@@ -107,6 +107,12 @@ function rootReducer(state = initialState, action) {
                 }
               }
 
+        case "RESET_DETAIL":
+            return{
+                ...state,
+                dogDetail: []
+            }
+
         default: return state;
     }
 }

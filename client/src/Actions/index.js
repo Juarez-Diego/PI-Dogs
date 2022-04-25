@@ -78,6 +78,11 @@ export function filterBySource(payload){
     }
 }
 
+export function resetDetail(){
+    return{
+        type: "RESET_DETAIL"
+    }
+}
 
 
 
