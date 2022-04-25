@@ -38,7 +38,11 @@ useEffect(() => {
 },[allDoggos])
 
 function nextPage(pageNumber){
+    if(currentPage > pageNumber.length - 1){
+        return
+    }
     setCurrentPage(currentPage + 1)
+    
 }
 
 function previousPage(pageNumber){
@@ -55,6 +59,7 @@ function previousPage(pageNumber){
 
             <div className="paginado-main">
            <div>
+           {console.log("pageNumber length = ", pageNumber.length)}
                {console.log(currentPage)}
             <button onClick={() => previousPage(pageNumber)}>Previous Page</button>
             <button onClick={() => nextPage(pageNumber)}>Next Page</button>
