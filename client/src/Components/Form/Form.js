@@ -234,9 +234,9 @@ function clearContents(){
 
                 {/* <button className="form-button">CREATE</button> */}
                 </form>
-                {/* <div>   
+                <div>   
             <button className="clear-form-button" onClick={() => clearContents()}>Clear Form</button>
-            </div>  */}
+            </div> 
             </div>
 
         </div>

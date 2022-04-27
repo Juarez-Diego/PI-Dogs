@@ -1,5 +1,6 @@
 import axios from "axios";
 
+
 export function getAllDogs(){
     return async function(dispatch){
         const getDogs = await axios.get("http://localhost:3001/dogs")
@@ -29,6 +30,7 @@ export function getDogByName(name){
         })
     }
 }
+
 
 export function getDogById(id){
     return async function(dispatch){

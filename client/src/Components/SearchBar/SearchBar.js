@@ -1,6 +1,6 @@
 import React from "react";
 import {useDispatch} from "react-redux"
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import {getDogByName, getAllDogs} from "../../Actions/index"
 import "../SearchBar/SearchBar.css"
@@ -20,7 +20,7 @@ function handleSubmit(e){
     dispatch(getDogByName(searchWord))
 }
 
-
+console.log(Number(searchWord))
 // Button to refresh Home
 function refresh(e){
     e.preventDefault();

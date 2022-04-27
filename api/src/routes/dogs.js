@@ -27,6 +27,7 @@ const apiDogs = async function(){
 
 
 
+
 /////////////////////////////////////////// GET DOGS FROM DATABASE ////////////////////////////////////////////
 const dbDogs = async function(){
     const dbAll = await Dog?.findAll({
@@ -67,12 +68,27 @@ const allDogs = async function(){
 router.get("/", async (req, res) => {
     
     const {name} = req.query
+    const {peso} = req.query
+ 
 
-    if (name) {
-        const finalFunction = await allDogs();
-        let dogName = finalFunction?.filter(e => e.name.toLowerCase().includes(name.toLowerCase()));
-        dogName.length ? res.status(200).json(dogName) : res.json("Dog not found, please try another search");
+    // if (name) {
+    //     const finalFunction = await allDogs();
+    //     let dogName = finalFunction?.filter(e => e.name.toLowerCase().includes(name.toLowerCase()));
+    //     dogName.length ? res.status(200).json(dogName) : res.json("Dog not found, please try another search");
     
+    //   } else {
+    //     const finalFunction = await allDogs();
+    //     res.status(200).json(finalFunction);
+    //   }
+
+    
+    if(name){
+        const finalFunction = await allDogs()
+    
+        let dogWeight = finalFunction.filter(e => Number(e.weight.split(" -")[0]) == Number(name))
+        console.log(dogWeight)
+        res.send(dogWeight)
+
       } else {
         const finalFunction = await allDogs();
         res.status(200).json(finalFunction);

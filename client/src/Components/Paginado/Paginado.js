@@ -14,7 +14,7 @@ function Paginado(){
 const dispatch = useDispatch()
 const allDoggos = useSelector(state => state.dogs)
 
-const [currentPage, setCurrentPage] = useState(1)
+const [currentPage, setCurrentPage] = useState(1)  
 const [dogsPerPage, setdogsPerPage] = useState(8)
 
 
@@ -37,35 +37,14 @@ useEffect(() => {
     setCurrentPage(1)
 },[allDoggos])
 
-function nextPage(pageNumber){
-    if(currentPage > pageNumber.length - 1){
-        return
-    }
-    setCurrentPage(currentPage + 1)
-    
-}
 
-function previousPage(pageNumber){
-    if(currentPage <= 1) {
-        return
-    }
-    else{
-        setCurrentPage(currentPage - 1)
-    }
-}
 
     return(
         <div>
 
             <div className="paginado-main">
-           <div>
-           {console.log("pageNumber length = ", pageNumber.length)}
-               {console.log(currentPage)}
-            <button onClick={() => previousPage(pageNumber)}>Previous Page</button>
-            <button onClick={() => nextPage(pageNumber)}>Next Page</button>
-           </div>
             
-            {/* <nav>
+            <nav>
             <ul>
                 {pageNumber && pageNumber.map(number => {return(
                     <li className="paginado_list" key={number}>
@@ -73,7 +52,7 @@ function previousPage(pageNumber){
                     </li>
                 )})}
             </ul>
-            </nav> */}
+            </nav>
             </div>
 
 

@@ -8,6 +8,7 @@ const createDog = require('./createDog')
 const allTemperaments = require('./temperaments')
 
 
+
 const router = Router();
 
 // Configurar los routers
@@ -16,6 +17,7 @@ router.use("/dogs", allDogs)
 router.use("/dogs/", dogDetail)
 router.use("/dog", createDog)
 router.use("/temperaments", allTemperaments)
+
 
 
 module.exports = router;
